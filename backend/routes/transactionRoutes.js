@@ -57,4 +57,32 @@ router.delete('/:id', protect, async (req, res) => {
     }
 });
 
+// @route   PUT /api/transactions/:id
+// @desc    Update a transaction
+router.put('/:id', protect, async (req, res) => {
+    try {
+        const transaction = await Transaction.findById(req.params.id);
+
+        if (!transaction) {
+            return res.status(404).json({ message: 'Transaction not found' });
+        }
+
+        // Check user ownership
+        if (transaction.user.toString() !== req.user.id) {
+            return res.status(401).json({ message: 'Not authorized' });
+        }
+
+        // Find and update the transaction with the new data
+        const updatedTransaction = await Transaction.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true } // This tells Mongoose to return the updated document
+        );
+
+        res.status(200).json(updatedTransaction);
+    } catch (error) {
+        res.status(500).json({ message: 'Server Error' });
+    }
+});
+
 module.exports = router;
