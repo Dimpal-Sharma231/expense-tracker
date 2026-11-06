@@ -2,8 +2,8 @@ import axios from 'axios';
 
 // Create an axios instance pointing to your backend
 const api = axios.create({
-  baseURL: 'http://localhost:5000', 
-});
+  baseURL: 'https://expense-tracker-api-xxxx.onrender.com', // Paste your actual Render URL here!
+}); 
 
 // Automatically attach the token to every request if it exists
 api.interceptors.request.use((req) => {
