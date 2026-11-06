@@ -5,9 +5,8 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors({
-    origin: 'https://expense-tracker-pi4i-ee47mrzqi-jaipurites.vercel.app'
-}));
+
+app.use(cors());
 app.use(express.json());
 
 // CONNECT ROUTES
@@ -28,6 +27,6 @@ mongoose.connect(process.env.MONGO_URI)
 
 // START SERVER
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server running on port ${PORT}`);
 });
