@@ -6,9 +6,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-    origin: 'https://expense-tracker-pi4i-ee47mrzqi-jaipurites.vercel.app',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
+    origin: 'https://expense-tracker-pi4i-ee47mrzqi-jaipurites.vercel.app'
 }));
 app.use(express.json());
 
