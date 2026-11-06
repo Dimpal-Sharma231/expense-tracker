@@ -1,0 +1,11 @@
+POST http://localhost:5000/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZWQ4NzgzNzViMDczMWUyNDZiYjcwNyIsImlhdCI6MTc5Mzk1MjQ4NywiZXhwIjoxNzk2NTQ0NDg3fQ.tjzh8l3sUMX6pFVQKfwdEYIjShjXw8XLPEwbHDLOPtI
+
+{
+    "title": "Grocery Shopping",
+    "amount": 50.50,
+    "type": "expense",
+    "category": "Food"
+}
+
